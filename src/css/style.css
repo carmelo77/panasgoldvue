@@ -1,0 +1,970 @@
+@font-face {
+    font-family: FontMainPage;
+    src: url(./font/GODOFWAR.TTF);
+}
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: FontMainPage;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.calculator {
+    display: flex;
+}
+
+.calculator .leftside-calculator {
+    /* border: 1px solid #444; */
+    width: 70%;
+    height: 48em;
+}
+
+.calculator .rightside-calculator {
+    /* border: 1px solid #444; */
+    width: 30%;
+    height: 48em;
+}
+
+.list-games {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* .list-games .game {
+    padding: 2em 3em;
+    border: 1px solid #333;
+    border-radius: 0.7em;
+    margin-top: 0.5em;
+} */
+
+/* .list-games .game:hover {
+    border: 3px solid yellow;
+} */
+
+.list-games .game img {
+    width: 100%;
+}
+
+.active-off {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.active-on {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.content-calculator {
+    display: flex;
+    padding: 20px 12px;
+}
+
+.content-calculator .countries-calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #333;
+    width: 15%;
+    padding: 2em 0;
+    border-radius: 0.7em;
+    height: 36em;
+}
+
+.countries-calculator .country {
+    padding: 1em 0;
+    /* border: 1px solid #333;
+    border-radius: 0.7em; */
+    position: relative;
+    margin-top: 0.5em;
+    font-weight: 900;
+}
+
+.countries-calculator .country .img-country {
+    cursor: pointer;
+    width: 6em;
+    position: relative;
+}
+
+.countries-calculator .country .img-radio {
+    width: 3em;
+    position: absolute;
+    top: 0px;
+    left: -20px;
+}
+
+.main-calculator {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    border: 1px solid #333;
+    padding: 2em 0.8em;
+    border-radius: 0.7em;
+    height: 36em;
+    margin: 0 12px;
+}
+
+.main-calculator .form-control {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 0 4px;
+}
+
+.form-control input {
+    border: 6px solid;
+    margin-top: 4px;
+    padding: 4px 4px;
+}
+
+.form-control .form-input-qty {
+    background: url("../assets/input_completo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 3.5em;
+    width: 100%;
+    color: #FFF;
+    font-size: 18px;
+    border: none;
+    box-sizing: border-box;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.form-control .form-input-qty:focus {
+    outline: none;
+}
+
+.form-control .form-input-price1 {
+    background: url("../assets/input_completo.png");
+    border: 2px solid #FFF;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 5em;
+    width: 22em;
+    color: #FFF;
+    font-size: 14px;
+    border: none;
+    box-sizing: border-box;
+    padding-left: 18px;
+    padding-bottom: 25px;
+}
+
+.form-control .form-input-price2:focus {
+    outline: none;
+}
+
+
+.form-control .form-input-price2 {
+    background: url("../assets/input_pequeño_standard.png");
+    border: 2px solid #FFF;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 5em;
+    width: 100%;
+    color: #FFF;
+    font-size: 14px;
+    border: none;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-bottom: 25px;
+}
+
+.form-control .form-input-price1:focus {
+    outline: none;
+}
+
+.form-control .img-input1 {
+    width: 100%;
+    margin: auto;
+}
+
+.btn-change {
+    margin: 0px auto;
+}
+
+.btn-change img {
+    width: 7em;
+}
+
+.price-title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.title-options {
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.row-form {
+    display: flex;
+}
+
+.options-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 10px;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.options-form img{
+    width: 7em;
+}
+
+.options-form-res {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 10px;
+}
+
+.opt-form {
+    display: flex;  
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.opt-form .box-opt-form {
+    position: relative;
+}
+
+.opt-form .box-opt-form .img-opt {
+    width: 7em;
+    margin: 0px 4px;
+    position: relative;
+}
+
+.opt-form .box-opt-form .img-radio {
+    width: 3em;
+    position: absolute;
+    top: -15px;
+    left: -15px;
+}
+
+.icon-opt-form {
+    padding: 5px 15px;
+    border: 1px solid;
+    margin: 0 5px;
+    border-radius: 0.3em;
+}
+
+.server {
+    padding-top: 12px;
+}
+
+.server fieldset {
+    margin: auto;
+    width: 12em;
+    height: 3em;
+    margin-top: 1em;
+}
+
+.server fieldset select {
+    background: transparent;
+    color: #FFF;
+}
+
+.server fieldset select option {
+    background: transparent;
+    color: #333;
+}
+
+.nickname {
+    margin: 2em auto;
+}
+
+.nickname fieldset {
+    width: 2em;
+}
+
+.content-calculator .accounts-calculator {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #333;
+    width: 25%;
+    padding: 2em 0.8em;
+    border-radius: 0.7em;
+    height: 36em;
+}
+
+ .accounts-calculator .account {
+    position: relative;
+    padding: 0.3em 1em;
+} 
+
+.accounts-calculator .account .img-account {
+    cursor: pointer;
+    width: 100%;
+    margin: 4px 0px;
+    position: relative;
+}
+
+.accounts-calculator .account .img-radio {
+    width: 3em;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.accounts-calculator .sell {
+    margin: auto;
+    text-align: center;
+}
+
+.accounts-calculator .sell img {
+    width: 90%;
+    height: 2.5em;
+    margin: 4px auto;
+    cursor: pointer;
+}
+
+.not-sell {
+    opacity: 0.5;
+}
+
+@media only screen and (min-width: 1921px)  {
+
+    .calculator .leftside-calculator {
+        width: 58%;
+        height: 0;    
+    }
+
+    .calculator {
+        margin-bottom: 18em;
+        height: auto;
+    }
+
+    .form-control .form-input-qty {
+        height: 4.8em;
+        padding-left: 40px;
+    }
+
+    .btn-change {
+        margin: 15px auto;
+    }
+
+    .row-form {
+        margin: 0 auto;
+        border: 1px;
+    }
+
+    .content-calculator .countries-calculator {
+        height: auto;
+    }
+
+    .main-calculator {
+        height: auto;
+    }
+
+    .content-calculator .accounts-calculator {
+        height: auto;
+    }
+
+    .form-control .form-input-price1 {
+        width: 30em;
+        padding-left: 25px;
+        padding-bottom: 20px;
+    }
+
+    .form-control .form-input-price2 {
+        margin-left: 20px;
+        width: 15em;
+        padding-left: 25px;
+        padding-bottom: 20px;
+    }
+
+    .options-form {
+        margin-top: 24px;
+    }
+
+    .opt-form .box-opt-form .img-opt {
+        width: 10em;
+    }
+
+    .opt-form .box-opt-form .img-radio {
+        width: 4em;
+    }
+}
+
+@media only screen and (max-width: 1920px) and (min-width: 1400px)  {
+
+    .calculator .leftside-calculator {
+        width: 58%;
+        height: 0;    
+    }
+
+    .calculator {
+        margin-bottom: 18em;
+        height: auto;
+    }
+
+    .form-control .form-input-qty {
+        height: 4.8em;
+        padding-left: 40px;
+    }
+
+    .btn-change {
+        margin: 15px auto;
+    }
+
+    .row-form {
+        margin: 0 auto;
+        border: 1px s;
+    }
+
+    .content-calculator .countries-calculator {
+        height: auto;
+    }
+
+    .main-calculator {
+        height: auto;
+    }
+
+    .content-calculator .accounts-calculator {
+        height: auto;
+    }
+
+    .form-control .form-input-price1 {
+        width: 27.5em;
+        padding-left: 25px;
+        padding-bottom: 20px;
+    }
+
+    .form-control .form-input-price2 {
+        width: 14em;
+        padding-left: 25px;
+        padding-bottom: 20px;
+    }
+
+    .options-form {
+        margin-top: 24px;
+    }
+
+    .opt-form .box-opt-form .img-opt {
+        width: 9em;
+    }
+
+    .opt-form .box-opt-form .img-radio {
+        width: 4em;
+    }
+}
+
+@media only screen and (max-width: 1366px) and (min-width: 1290px)  {
+    .countries-calculator .country .img-country {
+        width: 4em;
+    }
+
+    .form-control .form-input-qty {
+        height: 4em;
+        width: 29em;
+    }
+
+    .opt-form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .form-control .form-input-price1 {
+        width: 24em;
+        font-size: 14px;
+    }
+
+    .form-control .form-input-price2 {
+        width: 12em;
+        font-size: 14px;
+    }
+
+    .opt-form .box-opt-form .img-opt {
+        width: 7em;
+        margin: 0px 4px;
+        position: relative;
+    }
+
+    .accounts-calculator .account {
+        padding: 0.3rem 1.8rem;
+    }
+
+    .accounts-calculator .account .img-account {
+        width: 8em;
+    }
+
+    .accounts-calculator .account .img-radio {
+        left: 12px;
+        width: 2.5em;
+    }
+
+    .accounts-calculator .sell img {
+        width: 8em;
+        height: 2em;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .countries-calculator .country .img-country {
+        width: 4em;
+    }
+
+    .form-control .form-input-qty {
+        height: 3em;
+        width: 22em;
+        margin-left: -5px;
+    }
+
+    .opt-form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .form-control .form-input-price1 {
+        width: 21em;
+        font-size: 12px;
+    }
+
+    .form-control .form-input-price2 {
+        width: 10.5em;
+        font-size: 12px;
+    }
+
+    .opt-form .box-opt-form .img-opt {
+        width: 5.5em;
+        margin: 0px 4px;
+        position: relative;
+    }
+
+    .accounts-calculator .account {
+        padding: 0.3rem 0;
+    }
+
+    .accounts-calculator .account .img-account {
+        width: 8em;
+    }
+
+    .accounts-calculator .account .img-radio {
+        left: -12px;
+        width: 2.5em;
+    }
+
+    .accounts-calculator .sell img {
+        width: 8em;
+        height: 2em;
+    }
+}
+
+@media only screen and (max-width: 968px) {
+    .calculator {
+        flex-direction: column;
+    }
+
+    .calculator .leftside-calculator {
+        width: 100%;
+        height: auto;
+    }
+    
+    .calculator .rightside-calculator {
+        width: 100%;
+        height: auto;
+    }
+
+    .content-calculator {
+        display: flex;
+        flex-direction: column;
+        /* padding: 20px 12px; */
+    }
+
+    .countries-calculator .country .img-country {
+        width: 6em;
+    }
+
+    .content-calculator .countries-calculator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #333;
+        padding: 2em 0.8em;
+        border-radius: 0.7em;
+        height: auto;
+        width: 100%;
+    }
+
+    .main-calculator {
+        width: 100%;
+        margin-top: 5px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .form-control {
+        margin: auto;
+    }
+
+    .form-control .form-input-qty {
+        height: 5em;
+        width: 36em;
+    }
+    .form-control .form-input-price1 {
+        padding-bottom: 10px;
+        padding-left: 32px;
+        font-size: 14px;
+        width: 34em;
+    }
+
+    .row-form {
+        margin: auto;
+    }
+
+    .form-control .form-input-price2 {
+        padding-bottom: 10px;
+        padding-left: 32px;
+        font-size: 14px;
+        width: 30em;
+    }
+
+    .opt-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+
+    .opt-form .box-opt-form .img-opt {
+        width: 100%;
+        margin: 4px 4px;
+    }
+    
+    .content-calculator .accounts-calculator {
+        width: 100%;
+        height: auto;
+    }
+
+    .accounts-calculator .account {
+        text-align: center;
+    }
+
+    .accounts-calculator .account .img-account {
+        cursor: pointer;
+        width: 12em;
+    }
+
+    .accounts-calculator .account .img-radio {
+        left: 21.5em;
+    }
+
+    .accounts-calculator .sell img {
+        width: 12em;
+        height: 3em;
+        margin: 4px auto;
+        cursor: pointer;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .calculator {
+        flex-direction: column;
+    }
+
+    .calculator .leftside-calculator {
+        width: 100%;
+        height: auto;
+    }
+    
+    .calculator .rightside-calculator {
+        width: 100%;
+        height: auto;
+    }
+
+    .content-calculator {
+        display: flex;
+        flex-direction: column;
+        /* padding: 20px 12px; */
+    }
+
+    .content-calculator .countries-calculator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #333;
+        padding: 2em 0.8em;
+        border-radius: 0.7em;
+        height: auto;
+        width: 100%;
+    }
+
+    .main-calculator {
+        width: 100%;
+        margin-top: 5px;
+        height: auto;
+        margin: 0;
+    }
+
+    .row-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-control .form-input-qty {
+        height: 3.5em;
+        width: 25.5em;
+    }
+    .form-control .form-input-price1 {
+        padding-bottom: 15px;
+        width: 30em;
+    }
+
+    .form-control .form-input-price2 {
+        padding-bottom: 15px;
+        width: 17em;
+    }
+
+    .opt-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+
+    .opt-form .box-opt-form .img-opt {
+        width: 100%;
+        margin: 4px 4px;
+    }
+    
+    .content-calculator .accounts-calculator {
+        width: 100%;
+        height: auto;
+    }
+
+    .accounts-calculator .account {
+        text-align: center;
+    }
+
+    .accounts-calculator .account .img-account {
+        cursor: pointer;
+        width: 12em;
+    }
+
+    .accounts-calculator .account .img-radio {
+        left: 15.5em;
+    }
+
+    .accounts-calculator .sell img {
+        width: 12em;
+        height: 3em;
+        margin: 4px auto;
+        cursor: pointer;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .calculator {
+        flex-direction: column;
+    }
+
+    .calculator .leftside-calculator {
+        width: 100%;
+        height: auto;
+    }
+    
+    .calculator .rightside-calculator {
+        width: 100%;
+        height: auto;
+    }
+
+    .content-calculator {
+        display: flex;
+        flex-direction: column;
+        /* padding: 20px 12px; */
+    }
+
+    .content-calculator .countries-calculator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #333;
+        padding: 2em 0.8em;
+        border-radius: 0.7em;
+        height: auto;
+        width: 100%;
+    }
+
+    .main-calculator {
+        width: 100%;
+        margin-top: 5px;
+        height: auto;
+        margin: 0;
+    }
+
+    .row-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-control .form-input-qty {
+        height: 2.4em;
+        width: 100%;
+    }
+    .form-control .form-input-price1 {
+        padding-bottom: 30px;
+        width: 22em;
+    }
+
+    .form-control .form-input-price2 {
+        padding-bottom: 15px;
+        width: 14em;
+    }
+
+    .opt-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+
+    .opt-form .box-opt-form .img-opt {
+        width: 100%;
+        margin: 4px 4px;
+    }
+    
+    .content-calculator .accounts-calculator {
+        width: 100%;
+        height: auto;
+    }
+
+    .accounts-calculator .account {
+        text-align: center;
+    }
+
+    .accounts-calculator .account .img-account {
+        cursor: pointer;
+        width: 60%;
+    }
+
+    .accounts-calculator .account .img-radio {
+        left: 3.5em;
+    }
+
+    .accounts-calculator .sell img {
+        width: 12em;
+        height: 3em;
+        margin: 4px auto;
+        cursor: pointer;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .calculator {
+        flex-direction: column;
+    }
+
+    .calculator .leftside-calculator {
+        width: 100%;
+        height: auto;
+    }
+    
+    .calculator .rightside-calculator {
+        width: 100%;
+        height: auto;
+    }
+
+    .content-calculator {
+        display: flex;
+        flex-direction: column;
+        /* padding: 20px 12px; */
+    }
+
+    .content-calculator .countries-calculator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #333;
+        padding: 2em 0.8em;
+        border-radius: 0.7em;
+        height: auto;
+        width: 100%;
+    }
+
+    .main-calculator {
+        width: 100%;
+        margin-top: 5px;
+        height: auto;
+        margin: 0;
+    }
+
+    .row-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-control .form-input-qty {
+        height: 2em;
+        width: 100%;
+    }
+    .form-control .form-input-price1 {
+        padding-bottom: 40px;
+        width: 18em;
+    }
+
+    .form-control .form-input-price2 {
+        padding-bottom: 15px;
+        width: 14em;
+    }
+
+    .opt-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+
+    .opt-form .box-opt-form .img-opt {
+        width: 100%;
+        margin: 4px 4px;
+    }
+    
+    .content-calculator .accounts-calculator {
+        width: 100%;
+        height: auto;
+    }
+
+    .accounts-calculator .account {
+        text-align: center;
+    }
+
+    .accounts-calculator .account .img-account {
+        cursor: pointer;
+        width: 60%;
+    }
+
+    .accounts-calculator .account .img-radio {
+        left: 2.5em;
+    }
+
+    .accounts-calculator .sell img {
+        width: 12em;
+        height: 3em;
+        margin: 4px auto;
+        cursor: pointer;
+        text-align: center;
+    }
+}
