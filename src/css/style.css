@@ -250,7 +250,7 @@ input[type=number] {
 
 .opt-form .box-opt-form .img-opt {
     width: 7em;
-    margin: 0px 4px;
+    /* margin: 0px 4px; */
     position: relative;
     cursor: pointer;
 }
@@ -632,6 +632,10 @@ input[type=number] {
         width: 7em;
         margin: 0px 4px;
         position: relative;
+    }
+
+    .opt-form .box-opt-form .img-radio{
+        width: 3em;
     }
 
     .accounts-calculator .account {
