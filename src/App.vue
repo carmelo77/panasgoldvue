@@ -506,40 +506,40 @@ export default {
         return;
       }
 
-      if(this.currentGame.id == 1) {
+      if(this.currentGame.id == 1 && this.nickname != '') {
         text = 'Muy Buenas, Juego: ' + this.currentGame.name +
-        ' Método de Pago: ' + this.currentPayment.name +
-        ' Método de Venta: ' + this.currentTrade.name +
-        ' Nickname: ' + this.nickname +
-        ' Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+        '\r\n Método de Pago: ' + this.currentPayment.name +
+        '\r\n Método de Venta: ' + this.currentTrade.name +
+        '\r\n Nickname: ' + this.nickname +
+        '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
         this.priceLocal.price * this.mainPrice + this.priceLocal.country.iso + ' ' 
         + '$' + this.priceUSD.price * this.mainPrice;
       } else if(this.currentGame.id == 2) {
         text = 'Muy Buenas, Juego: ' + this.currentGame.name +
-        ' Método de Pago: ' + this.currentPayment.name +
-        ' Método de Venta: ' + this.currentTrade.name +
-        ' Facción: ' + this.currentFaction.name +
-        ' Server: ' + this.servers.find(sv => sv.id == this.currentServer).name +
-        ' Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+        '\r\n Método de Pago: ' + this.currentPayment.name +
+        '\r\n Método de Venta: ' + this.currentTrade.name +
+        '\r\n Facción: ' + this.currentFaction.name +
+        '\r\n Server: ' + this.servers.find(sv => sv.id == this.currentServer).name +
+        '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
         this.priceLocal.price * this.mainPrice + this.priceLocal.country.iso + ' ' 
         + '$' + this.priceUSD.price * this.mainPrice;
       } else if(this.currentGame.id == 3) {
         text = 'Muy Buenas, Juego: ' + this.currentGame.name +
-        ' Método de Pago: ' + this.currentPayment.name +
-        ' Región: ' + this.currentRegion.name +
-        ' Server: ' + this.servers.find(sv => sv.id == this.currentServer).name +
-        ' Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+        '\r\n Método de Pago: ' + this.currentPayment.name +
+        '\r\n Región: ' + this.currentRegion.name +
+        '\r\n Server: ' + this.servers.find(sv => sv.id == this.currentServer).name +
+        '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
         this.priceLocal.price * this.mainPrice + this.priceLocal.country.iso + ' ' 
         + '$' + this.priceUSD.price * this.mainPrice;
       }
 
       console.log(text)
-
-        this.$zendesk.zE(
-          'webWidget', 
-          'chat:send', 
-          text
-        )
+      this.$zendesk.zE('webWidget', 'open')
+      this.$zendesk.zE(
+        'webWidget', 
+        'chat:send', 
+        text
+      )
     }
   }
 }
