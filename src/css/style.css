@@ -399,7 +399,7 @@ input[type=number] {
     }
 
     .opt-form .box-opt-form .img-opt {
-        width: 10em;
+        width: 14em;
     }
 
     .opt-form .box-opt-form .img-radio {
@@ -470,7 +470,7 @@ input[type=number] {
     }
 
     .opt-form .box-opt-form .img-opt {
-        width: 9em;
+        width: 10em;
     }
 
     .opt-form .box-opt-form .img-radio {
@@ -600,7 +600,7 @@ input[type=number] {
     }
 
     .opt-form .box-opt-form .img-radio {
-        width: 4em;
+        width: 3em;
     }
 }
 
@@ -696,8 +696,8 @@ input[type=number] {
     }
 
     .opt-form .box-opt-form .img-opt {
-        width: 7em;
-        margin: 0px 4px;
+        width: 9.3em;
+        /* margin: 0px 4px; */
         position: relative;
     }
 
