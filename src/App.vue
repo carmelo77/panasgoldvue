@@ -284,10 +284,10 @@ export default {
     }
   },
 
-  created() {
+  mounted() {
     this.getPrices();
-    this.getGames();
     this.getCountries();
+    this.getGames();
   },
 
   computed: {
@@ -347,6 +347,8 @@ export default {
         this.currentTrade = data.games[0].trades[0];
         this.currentFaction = data.games[0].factions[0];
 
+        this.getServersByGame(data.games[0].regions[0] ? data.games[0].regions[0].id : null);
+
       } catch (err) {
         console.log(err);
       }
@@ -361,13 +363,13 @@ export default {
         this.payments = data.countries[0].payments;
         this.currentPayment = data.countries[0].payments[0];
 
-        let resultLocal = this.prices.find(p => p.game_id == this.currentGame.id &&
-           p.country_id == data.countries[0].id && p.type == 1);
-        let resultUSD = this.prices.find(price => price.game_id == this.currentGame.id &&
-           price.country_id == data.countries[0].id && price.type == 2);
+        // let resultLocal = this.prices.find(p => p.game_id == this.currentGame.id &&
+        //    p.country_id == data.countries[0].id && p.type == 1);
+        // let resultUSD = this.prices.find(price => price.game_id == this.currentGame.id &&
+        //    price.country_id == data.countries[0].id && price.type == 2);
         
-        this.priceLocal = resultLocal;
-        this.priceUSD = resultUSD;
+        // this.priceLocal = resultLocal;
+        // this.priceUSD = resultUSD;
 
       } catch (err) {
         console.log(err);
