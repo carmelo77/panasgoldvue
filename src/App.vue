@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="!loader">
     <div class="calculator">
       <section class="leftside-calculator">
         <div class="list-games">
@@ -270,6 +270,7 @@ export default {
 
       mainPrice: 0,
       loading: false,
+      loader: true,
       
       base_image: BASE_HREF_IMAGE,
       deselectedIcon: require('@/assets/Deselected.png')
@@ -357,6 +358,8 @@ export default {
     },
 
     async getCountries(allPrices) {
+      this.loader = true;
+
       try {
         const { data } = await this.$http.get('/getAll-countries');
         this.countries = data.countries;
@@ -376,13 +379,7 @@ export default {
       } catch (err) {
         console.log(err);
       } finally {
-        // let resultLocal = this.prices.find(p => p.game_id == this.currentGame.id &&
-        //    p.country_id == this.currentCountry[0].id && p.type == 1);
-        // let resultUSD = this.prices.find(price => price.game_id == this.currentGame.id &&
-        //    price.country_id == this.currentCountry[0].id && price.type == 2);
-        
-        // this.priceLocal = resultLocal;
-        // this.priceUSD = resultUSD;
+        this.loader = false;
       }
     },
 
