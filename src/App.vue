@@ -193,6 +193,7 @@
                 :src="currentPayment.id == payment.id ? selectedOption : deselectedIcon" 
                 class="img-radio" 
                 alt="radio-img"
+                @click="onChangePayment(payment)"
               >
             </div>
             <div class="sell" v-if="payments.length && currentPayment.id != 0">
