@@ -286,8 +286,8 @@ export default {
 
   mounted() {
     this.getPrices();
-    this.getCountries();
     this.getGames();
+    // this.getCountries();
   },
 
   computed: {
@@ -327,6 +327,8 @@ export default {
       try {
         const { data } = await this.$http.get('/get-prices');
         this.prices = data.prices;
+
+        this.getCountries(data.prices);
       } catch (err) {
         console.log(err);
       }
@@ -354,7 +356,7 @@ export default {
       }
     },
 
-    async getCountries() {
+    async getCountries(allPrices) {
       try {
         const { data } = await this.$http.get('/getAll-countries');
         this.countries = data.countries;
@@ -363,16 +365,24 @@ export default {
         this.payments = data.countries[0].payments;
         this.currentPayment = data.countries[0].payments[0];
 
-        // let resultLocal = this.prices.find(p => p.game_id == this.currentGame.id &&
-        //    p.country_id == data.countries[0].id && p.type == 1);
-        // let resultUSD = this.prices.find(price => price.game_id == this.currentGame.id &&
-        //    price.country_id == data.countries[0].id && price.type == 2);
+        let resultLocal = allPrices.find(p => p.game_id == this.currentGame.id &&
+           p.country_id == data.countries[0].id && p.type == 1);
+        let resultUSD = allPrices.find(price => price.game_id == this.currentGame.id &&
+           price.country_id == data.countries[0].id && price.type == 2);
         
-        // this.priceLocal = resultLocal;
-        // this.priceUSD = resultUSD;
+        this.priceLocal = resultLocal;
+        this.priceUSD = resultUSD;
 
       } catch (err) {
         console.log(err);
+      } finally {
+        // let resultLocal = this.prices.find(p => p.game_id == this.currentGame.id &&
+        //    p.country_id == this.currentCountry[0].id && p.type == 1);
+        // let resultUSD = this.prices.find(price => price.game_id == this.currentGame.id &&
+        //    price.country_id == this.currentCountry[0].id && price.type == 2);
+        
+        // this.priceLocal = resultLocal;
+        // this.priceUSD = resultUSD;
       }
     },
 
