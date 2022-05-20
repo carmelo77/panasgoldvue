@@ -515,7 +515,12 @@ export default {
         return;
       }
 
-      if(this.currentGame.id == 1 && this.nickname != '') {
+      if(this.currentGame.id == 1 && this.nickname == ''){
+        alert('El nickname no puede estar vacío.');
+        return;
+      }
+
+      if(this.currentGame.id == 1) {
         text = 'Muy Buenas, Juego: ' + this.currentGame.name +
         '\r\n Método de Pago: ' + this.currentPayment.name +
         '\r\n Método de Venta: ' + this.currentTrade.name +
