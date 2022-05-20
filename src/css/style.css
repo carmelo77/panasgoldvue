@@ -752,7 +752,7 @@ input[type=number] {
     }
 
     .opt-form .box-opt-form .img-opt {
-        width: 5.5em;
+        /* width: 5.5em; */
         margin: 0px 4px;
         position: relative;
     }
