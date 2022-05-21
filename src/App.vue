@@ -212,6 +212,7 @@
       </section>
     </div>
     <ReferencesComponent />
+    <SocialComponent />
   </div>
 
 </template>
@@ -228,6 +229,7 @@ import { BASE_HREF_IMAGE } from './utils/constants';
 export default {
   components: {
     ReferencesComponent: () => import('./components/references'),
+    SocialComponent: () => import('./components/social'),
   },
   name: 'App',
   data() {
