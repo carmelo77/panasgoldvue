@@ -64,7 +64,7 @@
                     type="text" 
                     class="form-input-price1" 
                     disabled
-                    :value="`${priceLocal.price * (mainPrice != '' ? mainPrice : 1)} ${priceLocal.country.iso} (${priceLocal.price} ${priceLocal.country.iso}/${coinGame})`"
+                    :value="`${(priceLocal.price * (mainPrice != '' ? mainPrice : 1)).toFixed(2)} ${priceLocal.country.iso} (${priceLocal.price} ${priceLocal.country.iso}/${coinGame})`"
                   >
                 </div>
                 <div class="form-control">
@@ -73,7 +73,7 @@
                     type="text" 
                     class="form-input-price2" 
                     disabled
-                    :value="`${priceUSD.price * (mainPrice != '' ? mainPrice : 1)} $ (${priceUSD.price} $/${coinGame})`"
+                    :value="`${(priceUSD.price * (mainPrice != '' ? mainPrice : 1)).toFixed(2)} $ (${priceUSD.price} $/${coinGame})`"
                   >
                 </div>
               </div>
