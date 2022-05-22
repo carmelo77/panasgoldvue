@@ -545,13 +545,37 @@ export default {
       }
 
       if(this.currentGame.id == 1) {
-        text = 'Muy Buenas, Juego: ' + this.currentGame.name +
-        '\r\n Método de Pago: ' + this.currentPayment.name +
-        '\r\n Método de Venta: ' + this.currentTrade.name +
-        '\r\n Nickname: ' + this.nickname +
-        '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
-        this.priceLocal.price * this.mainPrice + this.priceLocal.country.iso + ' ' 
-        + '$' + this.priceUSD.price * this.mainPrice;
+
+
+        if(this.currentTrade.id == 1){
+          text = 'Muy Buenas, Juego: ' + this.currentGame.name +
+          '\r\n Método de Pago: ' + this.currentPayment.name +
+          '\r\n Método de Venta: ' + this.currentTrade.name +
+          '\r\n *Lugar: Lumbridge - Telespot' +
+          '\r\n * 🌍 WORLD : 473' +
+          '\r\n Nickname: ' + this.nickname +
+          '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+          this.priceLocal.price * this.mainPrice + this.priceLocal.country.iso + ' ' 
+          + '$' + this.priceUSD.price * this.mainPrice;
+        }else if(this.currentTrade.id == 2){
+          text = 'Muy Buenas, Juego: ' + this.currentGame.name +
+          '\r\n Método de Pago: ' + this.currentPayment.name +
+          '\r\n Método de Venta: ' + this.currentTrade.name +
+          '\r\n * Lugar : Rimmington' +
+          '\r\n * 🌍 WORLD : 465 ' +
+          '\r\n Nickname: ' + this.nickname +
+          '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+          this.priceLocal.price * this.mainPrice + this.priceLocal.country.iso + ' ' 
+          + '$' + this.priceUSD.price * this.mainPrice;
+        }
+
+        //           text = 'Muy Buenas, Juego: ' + this.currentGame.name +
+        // '\r\n Método de Pago: ' + this.currentPayment.name +
+        // '\r\n Método de Venta: ' + this.currentTrade.name +
+        // '\r\n Nickname: ' + this.nickname +
+        // '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+        // this.priceLocal.price * this.mainPrice + this.priceLocal.country.iso + ' ' 
+        // + '$' + this.priceUSD.price * this.mainPrice;
       } else if(this.currentGame.id == 2) {
         text = 'Muy Buenas, Juego: ' + this.currentGame.name +
         '\r\n Método de Pago: ' + this.currentPayment.name +

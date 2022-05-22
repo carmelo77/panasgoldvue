@@ -1,11 +1,11 @@
 <template>
   <div class="social">
 		<div class="social-container">
-      <i class="fab fa-facebook-f"></i> &nbsp;
-			<i class="fab fa-instagram"></i> &nbsp;
+     <a href="https://www.facebook.com/PanasGold" target="_blank"><i class="fab fa-facebook-f"></i></a> &nbsp;
+			<a href="https://www.instagram.com/panasgold" target="_blank"><i class="fab fa-instagram"></i></a> &nbsp;
 			<i class="fab fa-discord"></i>
     </div>
-    <h3> &copy; Copyright 2018-2020 PanasGold.com</h3>
+    <h3> &copy; Copyright 2018-2022 PanasGold.com</h3>
   </div>
 </template>
 
@@ -32,4 +32,8 @@
 		margin: 0 6px;
 		cursor: pointer;
 	}
+
+  .social-container a {
+    color: white;
+  }
 </style>
