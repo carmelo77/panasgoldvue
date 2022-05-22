@@ -386,14 +386,14 @@ export default {
       }
     },
 
-    onChangeGame(game) {
+    async onChangeGame(game) {
       this.currentGame = game; 
       this.currentBg = game.bg;
 
       this.currentRegion = {};
       this.currentTrade = {};
       this.currentFaction = {};
-      this.currentServer = 0;
+      this.currentServer = null;
 
       this.currentCountry = this.countries[0];
       this.coinGame = game.id == 1 ? 'M' : 'K';
@@ -411,15 +411,25 @@ export default {
 
       this.nickname = "";
 
-      let resultLocal = this.prices.find(p => p.game_id == game.id &&
-          p.country_id == this.countries[0].id && p.type == 1);
-      let resultUSD = this.prices.find(price => price.game_id == game.id &&
-          price.country_id == this.countries[0].id && price.type == 2);
-      
-      this.priceLocal = resultLocal;
-      this.priceUSD = resultUSD;
+      await this.getServersByGame(game.regions[0] ? game.regions[0].id : null);
 
-      this.getServersByGame(game.regions[0] ? game.regions[0].id : null);
+      if(game.id == 1) {
+        let resultLocal = this.prices.find(p => p.game_id == game.id &&
+          p.country_id == this.countries[0].id && p.type == 1);
+        let resultUSD = this.prices.find(price => price.game_id == game.id &&
+            price.country_id == this.countries[0].id && price.type == 2);
+        
+        this.priceLocal = resultLocal;
+        this.priceUSD = resultUSD;
+      } else {
+        let resultLocal = this.prices.find(p => p.game_id == game.id &&
+          p.country_id == this.countries[0].id && p.server_id == this.currentServer && p.type == 1);
+        let resultUSD = this.prices.find(price => price.game_id == game.id &&
+            price.country_id == this.countries[0].id && price.server_id == this.currentServer && price.type == 2);
+        
+        this.priceLocal = resultLocal;
+        this.priceUSD = resultUSD;
+      }
     },
 
     onChangeCountry(country) {
@@ -427,13 +437,24 @@ export default {
       this.payments = country.payments;
       this.currentPayment = country.payments[0];
 
-      let resultLocal = this.prices.find(p => p.game_id == this.currentGame.id &&
+      if(this.currentGame.id == 1) {
+        let resultLocal = this.prices.find(p => p.game_id == this.currentGame.id &&
           p.country_id == country.id && p.type == 1);
-      let resultUSD = this.prices.find(price => price.game_id == this.currentGame.id &&
-          price.country_id == country.id && price.type == 2);
-      
-      this.priceLocal = resultLocal;
-      this.priceUSD = resultUSD;
+        let resultUSD = this.prices.find(price => price.game_id == this.currentGame.id &&
+            price.country_id == country.id && price.type == 2);
+        
+        this.priceLocal = resultLocal;
+        this.priceUSD = resultUSD;
+      } else {
+        let resultLocal = this.prices.find(p => p.game_id == this.currentGame.id &&
+          p.country_id == country.id && p.server_id == this.currentServer && p.type == 1);
+        let resultUSD = this.prices.find(price => price.game_id == this.currentGame.id &&
+            price.country_id == country.id && price.server_id == this.currentServer && price.type == 2);
+        
+        this.priceLocal = resultLocal;
+        this.priceUSD = resultUSD;
+      }
+
     },
 
     onChangePayment(payment) {
