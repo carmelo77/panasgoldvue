@@ -555,8 +555,8 @@ export default {
           '\r\n * 🌍 WORLD : 473' +
           '\r\n Nickname: ' + this.nickname +
           '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
-          this.priceLocal.price * this.mainPrice + this.priceLocal.country.iso + ' ' 
-          + '$' + this.priceUSD.price * this.mainPrice;
+          (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+          + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
         }else if(this.currentTrade.id == 2){
           text = 'Muy Buenas, Juego: ' + this.currentGame.name +
           '\r\n Método de Pago: ' + this.currentPayment.name +
@@ -565,8 +565,8 @@ export default {
           '\r\n * 🌍 WORLD : 465 ' +
           '\r\n Nickname: ' + this.nickname +
           '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
-          this.priceLocal.price * this.mainPrice + this.priceLocal.country.iso + ' ' 
-          + '$' + this.priceUSD.price * this.mainPrice;
+          (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+          + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
         }
 
         //           text = 'Muy Buenas, Juego: ' + this.currentGame.name +
@@ -574,8 +574,8 @@ export default {
         // '\r\n Método de Venta: ' + this.currentTrade.name +
         // '\r\n Nickname: ' + this.nickname +
         // '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
-        // this.priceLocal.price * this.mainPrice + this.priceLocal.country.iso + ' ' 
-        // + '$' + this.priceUSD.price * this.mainPrice;
+        // (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+        // + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
       } else if(this.currentGame.id == 2) {
         text = 'Muy Buenas, Juego: ' + this.currentGame.name +
         '\r\n Método de Pago: ' + this.currentPayment.name +
@@ -583,16 +583,16 @@ export default {
         '\r\n Facción: ' + this.currentFaction.name +
         '\r\n Server: ' + this.servers.find(sv => sv.id == this.currentServer).name +
         '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
-        this.priceLocal.price * this.mainPrice + this.priceLocal.country.iso + ' ' 
-        + '$' + this.priceUSD.price * this.mainPrice;
+        (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+        + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
       } else if(this.currentGame.id == 3) {
         text = 'Muy Buenas, Juego: ' + this.currentGame.name +
         '\r\n Método de Pago: ' + this.currentPayment.name +
         '\r\n Región: ' + this.currentRegion.name +
         '\r\n Server: ' + this.servers.find(sv => sv.id == this.currentServer).name +
         '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
-        this.priceLocal.price * this.mainPrice + this.priceLocal.country.iso + ' ' 
-        + '$' + this.priceUSD.price * this.mainPrice;
+        (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+        + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
       }
 
       console.log(text)
