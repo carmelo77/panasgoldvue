@@ -14,7 +14,9 @@ axios.defaults.baseURL = 'https://panasgold.com/dashboard/public/api';
 import Zendesk from '@dansmaculotte/vue-zendesk'
 
 Vue.use(Zendesk, {
-  key: 'f94a30a1-0548-4f3a-b372-25c8972e5666',
+  //testing
+  // key: 'f94a30a1-0548-4f3a-b372-25c8972e5666',
+  key: 'a40aceb4-3a36-4c72-a049-a9b638fbe892',
   disabled: false,
   hideOnLoad: false,
   // settings: {
