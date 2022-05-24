@@ -551,8 +551,8 @@ export default {
           text = 'Muy Buenas, Juego: ' + this.currentGame.name +
           '\r\n Método de Pago: ' + this.currentPayment.name +
           '\r\n Método de Venta: ' + this.currentTrade.name +
-          '\r\n *Lugar: Lumbridge - Telespot' +
-          '\r\n * 🌍 WORLD : 473' +
+          '\r\n *📍Lugar: Lumbridge - Telespot' +
+          '\r\n *🌍 WORLD : 473' +
           '\r\n Nickname: ' + this.nickname +
           '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
           (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
@@ -561,8 +561,28 @@ export default {
           text = 'Muy Buenas, Juego: ' + this.currentGame.name +
           '\r\n Método de Pago: ' + this.currentPayment.name +
           '\r\n Método de Venta: ' + this.currentTrade.name +
-          '\r\n * Lugar : Rimmington' +
-          '\r\n * 🌍 WORLD : 465 ' +
+          '\r\n *📍Lugar : Rimmington' +
+          '\r\n *🌍 WORLD : 465 ' +
+          '\r\n Nickname: ' + this.nickname +
+          '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+          (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+          + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
+        }else if(this.currentTrade.id == 6){
+          text = 'Muy Buenas, Juego: ' + this.currentGame.name +
+          '\r\n Método de Pago: ' + this.currentPayment.name +
+          '\r\n Método de Venta: ' + this.currentTrade.name +
+          '\r\n *📍Lugar : Draynor bank' +
+          '\r\n *🌍 WORLD : 392 ' +
+          '\r\n Rango q recibimos: lvl 86-116' +
+          '\r\n Nickname: ' + this.nickname +
+          '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+          (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+          + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
+        }
+        else{
+          text = 'Muy Buenas, Juego: ' + this.currentGame.name +
+          '\r\n Método de Pago: ' + this.currentPayment.name +
+          '\r\n Método de Venta: ' + this.currentTrade.name +
           '\r\n Nickname: ' + this.nickname +
           '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
           (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
