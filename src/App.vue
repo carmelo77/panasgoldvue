@@ -145,7 +145,7 @@
                   </div>
                 </div>
               </div>
-              <div class="server" v-if="servers.length > 0">
+              <div class="server" v-if="serversFiltered.length > 0">
                 <fieldset>
                   <legend>Server</legend>
                   <div class="form-control">
@@ -157,7 +157,7 @@
                       >
                         <!-- <option value="">Selecciona un server</option> -->
                         <option
-                          v-for="server in servers"
+                          v-for="server in serversFiltered"
                           :key="`server_${server.id}`"
                           :value="server.id"
                         >
@@ -167,7 +167,7 @@
                   </div>
                 </fieldset>
               </div>
-              <div class="nickname" v-if="servers.length == 0">
+              <div class="nickname" v-if="serversFiltered.length == 0">
                 <fieldset>
                   <legend>Nickname</legend>
                   <div>
@@ -353,7 +353,8 @@ export default {
         this.currentTrade = data.games[0].trades[0];
         this.currentFaction = data.games[0].factions[0];
 
-        this.getServersByGame(data.games[0].regions[0] ? data.games[0].regions[0].id : null);
+        // this.getServers(data.games[0].regions[0] ? data.games[0].regions[0].id : null);
+        this.getServers();
 
       } catch (err) {
         console.log(err);
@@ -478,24 +479,48 @@ export default {
       this.currentServer = this.servers[0];
     },
 
-    async getServersByGame(region_id = null) {
-      let info = {
-        game_id: this.currentGame.id,
-        region_id: region_id 
-      }
+    // async getServersByGame(region_id = null) {
+    //   let info = {
+    //     game_id: this.currentGame.id,
+    //     region_id: region_id 
+    //   }
 
-      this.loading = true;
+    //   this.loading = true;
 
+    //   try {
+    //     const { data } = await this.$http.post(`/get-servers`, info);
+    //       this.servers = data.servers;
+    //       this.currentServer = data.servers.length > 0 ? data.servers[0].id : 0;
+          
+    //       if(data.servers.length > 0) {
+    //         let resultLocal = this.prices.find(p => p.game_id == this.currentGame.id &&
+    //           p.country_id == this.currentCountry.id && p.server_id == data.servers[0].id && p.type == 1);
+    //         let resultUSD = this.prices.find(price => price.game_id == this.currentGame.id &&
+    //             price.country_id == this.currentCountry.id && price.server_id == data.servers[0].id && price.type == 2);
+            
+    //         this.priceLocal = resultLocal;
+    //         this.priceUSD = resultUSD;
+    //       }
+
+    //   } catch (err) {
+    //     console.log(err);
+    //   } finally {
+    //     this.loading = false;
+    //   }
+    // },
+
+    async getServers() {
       try {
-        const { data } = await this.$http.post(`/get-servers`, info);
+        const { data } = await this.$http.get(`/all-servers`);
           this.servers = data.servers;
-          this.currentServer = data.servers.length > 0 ? data.servers[0].id : 0;
+          let current_server = data.servers.find(sv => sv.game_id == this.currentGame.id);
+          this.currentServer = current_server
           
           if(data.servers.length > 0) {
             let resultLocal = this.prices.find(p => p.game_id == this.currentGame.id &&
-              p.country_id == this.currentCountry.id && p.server_id == data.servers[0].id && p.type == 1);
+              p.country_id == this.currentCountry.id && p.server_id == current_server && p.type == 1);
             let resultUSD = this.prices.find(price => price.game_id == this.currentGame.id &&
-                price.country_id == this.currentCountry.id && price.server_id == data.servers[0].id && price.type == 2);
+                price.country_id == this.currentCountry.id && price.server_id == current_server && price.type == 2);
             
             this.priceLocal = resultLocal;
             this.priceUSD = resultUSD;
@@ -503,8 +528,25 @@ export default {
 
       } catch (err) {
         console.log(err);
-      } finally {
-        this.loading = false;
+      }
+    }, 
+    async getServersByGame(region_id = null) {
+      if(this.currentGame.id > 1) {
+        this.serversFiltered = this.servers.filter(sv => sv.game_id == this.currentGame.id && sv.region_id == region_id);
+      } else {
+        this.serversFiltered = this.servers.filter(sv => sv.game_id == this.currentGame.id);
+      }
+
+      this.currentServer = this.serversFiltered.length > 0 ? this.serversFiltered[0].id : null;
+          
+      if(this.serversFiltered.length > 0) {
+        let resultLocal = this.prices.find(p => p.game_id == this.currentGame.id &&
+          p.country_id == this.currentCountry.id && p.server_id == this.serversFiltered[0].id && p.type == 1);
+        let resultUSD = this.prices.find(price => price.game_id == this.currentGame.id &&
+            price.country_id == this.currentCountry.id && price.server_id == this.serversFiltered[0].id && price.type == 2);
+        
+        this.priceLocal = resultLocal;
+        this.priceUSD = resultUSD;
       }
     },
 
@@ -601,7 +643,7 @@ export default {
         '\r\n Método de Pago: ' + this.currentPayment.name +
         '\r\n Método de Venta: ' + this.currentTrade.name +
         '\r\n Facción: ' + this.currentFaction.name +
-        '\r\n Server: ' + this.servers.find(sv => sv.id == this.currentServer).name +
+        '\r\n Server: ' + this.serversFiltered.find(sv => sv.id == this.currentServer).name +
         '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
         (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
         + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
@@ -609,7 +651,7 @@ export default {
         text = 'Muy Buenas, Juego: ' + this.currentGame.name +
         '\r\n Método de Pago: ' + this.currentPayment.name +
         '\r\n Región: ' + this.currentRegion.name +
-        '\r\n Server: ' + this.servers.find(sv => sv.id == this.currentServer).name +
+        '\r\n Server: ' + this.serversFiltered.find(sv => sv.id == this.currentServer).name +
         '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
         (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
         + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
