@@ -595,7 +595,7 @@ export default {
           '\r\n Método de Venta: ' + this.currentTrade.name +
           '\r\n *📍Lugar: Lumbridge - Telespot' +
           '\r\n *🌍 WORLD : 473' +
-          '\r\n Nickname: ' + this.nickname +
+          '\r\n Nickname: ' + this.nickname.toUpperCase() +
           '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
           (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
           + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
@@ -605,7 +605,7 @@ export default {
           '\r\n Método de Venta: ' + this.currentTrade.name +
           '\r\n *📍Lugar : Rimmington' +
           '\r\n *🌍 WORLD : 465 ' +
-          '\r\n Nickname: ' + this.nickname +
+          '\r\n Nickname: ' + this.nickname.toUpperCase() +
           '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
           (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
           + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
@@ -616,7 +616,7 @@ export default {
           '\r\n *📍Lugar : Draynor bank' +
           '\r\n *🌍 WORLD : 392 ' +
           '\r\n Rango q recibimos: lvl 86-116' +
-          '\r\n Nickname: ' + this.nickname +
+          '\r\n Nickname: ' + this.nickname.toUpperCase() +
           '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
           (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
           + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
@@ -625,7 +625,7 @@ export default {
           text = 'Muy Buenas, Juego: ' + this.currentGame.name +
           '\r\n Método de Pago: ' + this.currentPayment.name +
           '\r\n Método de Venta: ' + this.currentTrade.name +
-          '\r\n Nickname: ' + this.nickname +
+          '\r\n Nickname: ' + this.nickname.toUpperCase() +
           '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
           (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
           + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
@@ -643,7 +643,7 @@ export default {
         '\r\n Método de Pago: ' + this.currentPayment.name +
         '\r\n Método de Venta: ' + this.currentTrade.name +
         '\r\n Facción: ' + this.currentFaction.name +
-        '\r\n Server: ' + this.serversFiltered.find(sv => sv.id == this.currentServer).name +
+        '\r\n Server: ' + this.serversFiltered.find(sv => sv.id == this.currentServer).name.toUpperCase() +
         '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
         (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
         + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
@@ -651,7 +651,7 @@ export default {
         text = 'Muy Buenas, Juego: ' + this.currentGame.name +
         '\r\n Método de Pago: ' + this.currentPayment.name +
         '\r\n Región: ' + this.currentRegion.name +
-        '\r\n Server: ' + this.serversFiltered.find(sv => sv.id == this.currentServer).name +
+        '\r\n Server: ' + this.serversFiltered.find(sv => sv.id == this.currentServer).name.toUpperCase() +
         '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
         (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
         + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
