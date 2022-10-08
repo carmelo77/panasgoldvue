@@ -78,7 +78,7 @@
                 </div>
               </div>
               <div class="options-form">
-                <label class="title-options" v-if="trades.length" for="method">Method</label>
+                <label class="title-options" v-if="trades.length" for="method">Selecciona un Método de Venta</label>
                 <label class="title-options" v-if="factions.length" for="faction">Faction</label>
                 <label class="title-options" v-if="regions.length" for="region">Región</label>
               </div>
@@ -169,7 +169,7 @@
               </div>
               <div class="nickname" v-if="serversFiltered.length == 0">
                 <fieldset>
-                  <legend>Nickname</legend>
+                  <legend>Escribe tu Nickname</legend>
                   <div>
                       <input type="text" v-model="nickname" />
                   </div>
@@ -582,7 +582,7 @@ export default {
       }
 
       if(this.currentGame.id == 1 && this.nickname == ''){
-        alert('El nickname no puede estar vacío.');
+        alert('El nickname no puede estar vacio. Escribe tu nombre del juego y luego presiona vender.');
         return;
       }
 
