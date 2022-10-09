@@ -410,9 +410,11 @@ export default {
       this.currentTrade = game.trades[0];
       this.currentFaction = game.factions[0];
 
+      // console.log(this.currentFaction);
+
       this.nickname = "";
 
-      await this.getServersByGame(game.regions[0] ? game.regions[0].id : null);
+      await this.getServersByGame(game.regions[0] ? game.regions[0].id : null, game.factions[0] ? game.factions[0].id : null);
 
       if(game.id == 1) {
         let resultLocal = this.prices.find(p => p.game_id == game.id &&
@@ -475,8 +477,8 @@ export default {
     onChangeFaction(faction) {
       this.currentFaction = faction;
 
-      this.getServersByGame();
-      this.currentServer = this.servers[0];
+      this.getServersByGame(null, faction.id);
+      // this.currentServer = this.servers[0];
     },
 
     // async getServersByGame(region_id = null) {
@@ -530,10 +532,17 @@ export default {
         console.log(err);
       }
     }, 
-    async getServersByGame(region_id = null) {
-      if(this.currentGame.id > 1) {
+    async getServersByGame(region_id = null, faction_id = null) {
+      if(this.currentGame.id == 3) {
+
         this.serversFiltered = this.servers.filter(sv => sv.game_id == this.currentGame.id && sv.region_id == region_id);
-      } else {
+      } else if (this.currentGame.id == 2) {
+
+        this.serversFiltered = this.servers.filter(sv => sv.game_id == this.currentGame.id && sv.faction_id == faction_id);
+
+        console.log(this.serversFiltered);
+      }else{
+
         this.serversFiltered = this.servers.filter(sv => sv.game_id == this.currentGame.id);
       }
 
