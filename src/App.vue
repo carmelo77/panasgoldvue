@@ -167,7 +167,7 @@
                   </div>
                 </fieldset>
               </div>
-              <div class="nickname" v-if="serversFiltered.length == 0">
+              <div class="nickname" v-if="currentGame.id == 1 || currentGame.id == 2">
                 <fieldset>
                   <legend>Escribe tu Nickname</legend>
                   <div>
@@ -540,7 +540,7 @@ export default {
 
         this.serversFiltered = this.servers.filter(sv => sv.game_id == this.currentGame.id && sv.faction_id == faction_id);
 
-        console.log(this.serversFiltered);
+        // console.log(this.serversFiltered);
       }else{
 
         this.serversFiltered = this.servers.filter(sv => sv.game_id == this.currentGame.id);
@@ -585,12 +585,23 @@ export default {
 
       let text = '';
 
-      if(this.mainPrice < 1 || this.mainPrice == '') {
+      if(this.mainPrice <= 0 || this.mainPrice == '') {
         alert('No puede haber un valor vacío');
         return;
       }
 
-      if(this.currentGame.id == 1 && this.nickname == ''){
+      if(this.priceLocal.price <= 0 || this.priceLocal.price == '') {
+        alert('No tenemos precio para éste servidor | Regresa más tarde');
+        return;
+      }
+
+      if(this.priceUSD.price <= 0 || this.priceUSD.price == '') {
+        console.log(this.priceUSD.price)
+        alert('No tenemos precio para éste servidor | Regresa más tarde 2');
+        return;
+      }
+
+      if( (this.currentGame.id == 1 && this.nickname == '') || (this.currentGame.id == 2 && this.nickname == '')){
         alert('El nickname no puede estar vacio. Escribe tu nombre del juego y luego presiona vender.');
         return;
       }
@@ -653,6 +664,7 @@ export default {
         '\r\n Método de Venta: ' + this.currentTrade.name +
         '\r\n Facción: ' + this.currentFaction.name +
         '\r\n Server: ' + this.serversFiltered.find(sv => sv.id == this.currentServer).name.toUpperCase() +
+        '\r\n Nickname: ' + this.nickname.toUpperCase() +
         '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
         (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
         + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
