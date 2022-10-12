@@ -153,7 +153,8 @@
                         name="servers"
                         v-if="currentFaction != 0 || currentRegion != 0 || currentTrade != 0"
                         v-model="currentServer"
-                        @click="setSelect($event)"
+                        
+                        @change="setSelect($event)"
                       >
                         <!-- <option value="">Selecciona un server</option> -->
                         <option
@@ -166,8 +167,14 @@
                       </select>
                   </div>
                 </fieldset>
+                <fieldset v-if="currentGame.id == 2">
+                  <legend>Escribe tu Nickname</legend>
+                  <div>
+                      <input type="text" v-model="nickname" />
+                  </div>
+                </fieldset>
               </div>
-              <div class="nickname" v-if="currentGame.id == 1 || currentGame.id == 2">
+              <div class="nickname" v-if="currentGame.id == 1">
                 <fieldset>
                   <legend>Escribe tu Nickname</legend>
                   <div>

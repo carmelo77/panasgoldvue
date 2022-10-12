@@ -1174,3 +1174,26 @@ input[type=number] {
         text-align: center;
     }
 }
+
+@media (min-width: 425px) {
+    .server{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1290px) {
+    .server fieldset{
+        margin-left: 10px;
+        width: 100%;
+        
+    }
+
+    .server fieldset > legend{
+        font-size: 13px;
+    }
+
+    .server fieldset > div input[type=text]{
+        width: 100%;
+    }
+}
