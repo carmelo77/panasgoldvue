@@ -621,7 +621,7 @@ export default {
           '\r\n Método de Pago: ' + this.currentPayment.name +
           '\r\n Método de Venta: ' + this.currentTrade.name +
           '\r\n *📍Lugar: Lumbridge - Telespot' +
-          '\r\n *🌍 WORLD : 473' +
+          '\r\n *🌍 WORLD : ' + this.currentTrade.world +
           '\r\n Nickname: ' + this.nickname.toUpperCase() +
           '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
           (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
@@ -631,7 +631,7 @@ export default {
           '\r\n Método de Pago: ' + this.currentPayment.name +
           '\r\n Método de Venta: ' + this.currentTrade.name +
           '\r\n *📍Lugar : Rimmington' +
-          '\r\n *🌍 WORLD : 465 ' +
+          '\r\n *🌍 WORLD : ' + this.currentTrade.world +
           '\r\n Nickname: ' + this.nickname.toUpperCase() +
           '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
           (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
@@ -641,7 +641,7 @@ export default {
           '\r\n Método de Pago: ' + this.currentPayment.name +
           '\r\n Método de Venta: ' + this.currentTrade.name +
           '\r\n *📍Lugar : Draynor bank' +
-          '\r\n *🌍 WORLD : 392 ' +
+          '\r\n *🌍 WORLD : ' + this.currentTrade.world +
           '\r\n Rango q recibimos: lvl 86-116' +
           '\r\n Nickname: ' + this.nickname.toUpperCase() +
           '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
@@ -685,7 +685,7 @@ export default {
         + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
       }
 
-      console.log(text)
+      // console.log(text)
       this.$zendesk.zE('webWidget', 'open')
       this.$zendesk.zE(
         'webWidget', 
