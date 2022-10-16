@@ -469,12 +469,22 @@ input[type=number] {
         margin-top: 24px;
     }
 
-    .opt-form .box-opt-form .img-opt {
-        width: 9em;
-    }
+
 
     .opt-form .box-opt-form .img-radio {
         width: 3em;
+    }
+}
+
+@media (min-width: 1776px) {
+    .opt-form .box-opt-form .img-opt {
+        width: 9em;
+    }
+}
+
+@media (min-width:1601px) and (max-width: 1775px){
+    .opt-form .box-opt-form .img-opt {
+        width: 8em;
     }
 }
 
@@ -533,11 +543,11 @@ input[type=number] {
     }
 
     .opt-form .box-opt-form .img-opt {
-        width: 9em;
+        width: 8em;
     }
 
     .opt-form .box-opt-form .img-radio {
-        width: 4em;
+        width: 3em;
     }
 }
 
@@ -596,7 +606,7 @@ input[type=number] {
     }
 
     .opt-form .box-opt-form .img-opt {
-        width: 9em;
+        width: 7em;
     }
 
     .opt-form .box-opt-form .img-radio {
@@ -659,7 +669,7 @@ input[type=number] {
     }
 
     .opt-form .box-opt-form .img-opt {
-        width: 9em;
+        width: 6em;
     }
 
     .opt-form .box-opt-form .img-radio {
@@ -669,7 +679,7 @@ input[type=number] {
 
 @media only screen and (max-width: 1401px) and (min-width: 1290px)  {
     .countries-calculator .country .img-country {
-        width: 4em;
+        width: 5em;
     }
 
     .form-control .form-input-qty {
@@ -696,13 +706,13 @@ input[type=number] {
     }
 
     .opt-form .box-opt-form .img-opt {
-        width: 9.3em;
+        width: 6.5em;
         /* margin: 0px 4px; */
         position: relative;
     }
 
     .opt-form .box-opt-form .img-radio{
-        width: 3em;
+        width: 2.5em;
     }
 
     .accounts-calculator .account {
@@ -721,6 +731,18 @@ input[type=number] {
     .accounts-calculator .sell img {
         width: 8em;
         height: 2em;
+    }
+}
+
+ @media (min-width: 969px) and (max-width: 1014px){
+    .opt-form .box-opt-form .img-opt {
+        width: 5em;
+    }
+ }
+
+@media (min-width: 1015px) and (max-width: 1201px){
+    .opt-form .box-opt-form .img-opt {
+        width: 5.5em;
     }
 }
 
