@@ -742,7 +742,7 @@ input[type=number] {
 
 @media (min-width: 1015px) and (max-width: 1201px){
     .opt-form .box-opt-form .img-opt {
-        width: 5.5em;
+        width: 5em;
     }
 }
 

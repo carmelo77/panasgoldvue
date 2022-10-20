@@ -3,7 +3,7 @@
 		<div class="social-container">
      <a href="https://www.facebook.com/PanasGold" target="_blank"><i class="fab fa-facebook-f"></i></a> &nbsp;
 			<a href="https://www.instagram.com/panasgold" target="_blank"><i class="fab fa-instagram"></i></a> &nbsp;
-			<i class="fab fa-discord"></i>
+			<a href="https://www.discord.gg/PanasGold" target="_blank"><i class="fab fa-discord"></i></a> &nbsp;
     </div>
     <h3> &copy; Copyright 2018-2022 PanasGold.com</h3>
   </div>
