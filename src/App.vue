@@ -617,36 +617,101 @@ export default {
 
 
         if(this.currentTrade.id == 1){
-          text = 'Muy Buenas, Juego: ' + this.currentGame.name +
-          '\r\n Método de Pago: ' + this.currentPayment.name +
-          '\r\n Método de Venta: ' + this.currentTrade.name +
-          '\r\n *📍Lugar: Lumbridge - Telespot' +
-          '\r\n *🌍 WORLD : ' + this.currentTrade.world +
-          '\r\n Nickname: ' + this.nickname.toUpperCase() +
-          '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
-          (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
-          + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
+          if(this.currentTrade.location ){
+            text = 'Muy Buenas, Juego: ' + this.currentGame.name +
+            '\r\n Método de Pago: ' + this.currentPayment.name +
+            '\r\n Método de Venta: ' + this.currentTrade.name +
+            '\r\n *📍Lugar: ' + this.currentTrade.location +
+            '\r\n *🌍 WORLD : ' + this.currentTrade.world +
+            '\r\n Nickname: ' + this.nickname.toUpperCase() +
+            '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+            (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+            + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
+          }else{
+            text = 'Muy Buenas, Juego: ' + this.currentGame.name +
+            '\r\n Método de Pago: ' + this.currentPayment.name +
+            '\r\n Método de Venta: ' + this.currentTrade.name +
+            '\r\n *📍Lugar: Consultar en chat' +
+            '\r\n *🌍 WORLD : ' + this.currentTrade.world +
+            '\r\n Nickname: ' + this.nickname.toUpperCase() +
+            '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+            (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+            + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
+          }
+
         }else if(this.currentTrade.id == 2){
-          text = 'Muy Buenas, Juego: ' + this.currentGame.name +
-          '\r\n Método de Pago: ' + this.currentPayment.name +
-          '\r\n Método de Venta: ' + this.currentTrade.name +
-          '\r\n *📍Lugar : Rimmington' +
-          '\r\n *🌍 WORLD : ' + this.currentTrade.world +
-          '\r\n Nickname: ' + this.nickname.toUpperCase() +
-          '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
-          (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
-          + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
+          if(this.currentTrade.location){
+            text = 'Muy Buenas, Juego: ' + this.currentGame.name +
+            '\r\n Método de Pago: ' + this.currentPayment.name +
+            '\r\n Método de Venta: ' + this.currentTrade.name +
+            '\r\n *📍Lugar : ' + this.currentTrade.location +
+            '\r\n *🌍 WORLD : ' + this.currentTrade.world +
+            '\r\n Nickname: ' + this.nickname.toUpperCase() +
+            '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+            (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+            + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
+          }else{
+            text = 'Muy Buenas, Juego: ' + this.currentGame.name +
+            '\r\n Método de Pago: ' + this.currentPayment.name +
+            '\r\n Método de Venta: ' + this.currentTrade.name +
+            '\r\n *📍Lugar : Consultar en el chat' +
+            '\r\n *🌍 WORLD : ' + this.currentTrade.world +
+            '\r\n Nickname: ' + this.nickname.toUpperCase() +
+            '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+            (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+            + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
+          }
+
+        }else if(this.currentTrade.id == 3){
+
+            if(this.currentTrade.location){
+              text = 'Muy Buenas, Juego: ' + this.currentGame.name +
+              '\r\n Método de Pago: ' + this.currentPayment.name +
+              '\r\n Método de Venta: ' + this.currentTrade.name +
+              '\r\n *📍Lugar : ' + this.currentTrade.location +
+              '\r\n *🌍 WORLD : ' + this.currentTrade.world +
+              '\r\n Nickname: ' + this.nickname.toUpperCase() +
+              '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+              (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+              + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
+            }else{
+              text = 'Muy Buenas, Juego: ' + this.currentGame.name +
+              '\r\n Método de Pago: ' + this.currentPayment.name +
+              '\r\n Método de Venta: ' + this.currentTrade.name +
+              '\r\n *📍Lugar : Consultar en el chat' +
+              '\r\n *🌍 WORLD : ' + this.currentTrade.world +
+              '\r\n Nickname: ' + this.nickname.toUpperCase() +
+              '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+              (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+              + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
+            }
+
+
         }else if(this.currentTrade.id == 6){
-          text = 'Muy Buenas, Juego: ' + this.currentGame.name +
-          '\r\n Método de Pago: ' + this.currentPayment.name +
-          '\r\n Método de Venta: ' + this.currentTrade.name +
-          '\r\n *📍Lugar : Draynor bank' +
-          '\r\n *🌍 WORLD : ' + this.currentTrade.world +
-          '\r\n Rango q recibimos: lvl 86-116' +
-          '\r\n Nickname: ' + this.nickname.toUpperCase() +
-          '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
-          (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
-          + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
+            if(this.currentTrade.location){
+              text = 'Muy Buenas, Juego: ' + this.currentGame.name +
+                '\r\n Método de Pago: ' + this.currentPayment.name +
+                '\r\n Método de Venta: ' + this.currentTrade.name +
+                '\r\n *📍Lugar : ' + this.currentTrade.location +
+                '\r\n *🌍 WORLD : ' + this.currentTrade.world +
+                '\r\n Rango q recibimos: lvl 86-116' +
+                '\r\n Nickname: ' + this.nickname.toUpperCase() +
+                '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+                (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+                + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
+            }else{
+
+              text = 'Muy Buenas, Juego: ' + this.currentGame.name +
+              '\r\n Método de Pago: ' + this.currentPayment.name +
+              '\r\n Método de Venta: ' + this.currentTrade.name +
+              '\r\n *📍Lugar : Consultar en el chat' +
+              '\r\n *🌍 WORLD : ' + this.currentTrade.world +
+              '\r\n Rango q recibimos: lvl 86-116' +
+              '\r\n Nickname: ' + this.nickname.toUpperCase() +
+              '\r\n Monto: ' + this.mainPrice + this.coinGame + ' = ' + 
+              (this.priceLocal.price * this.mainPrice).toFixed(2) + this.priceLocal.country.iso + ' ' 
+              + '$' + (this.priceUSD.price * this.mainPrice).toFixed(2);
+            }
         }
         else{
           text = 'Muy Buenas, Juego: ' + this.currentGame.name +
